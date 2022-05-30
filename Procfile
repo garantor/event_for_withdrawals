@@ -1,2 +1,1 @@
-
-release python main_event.py
+web: python main_event.py

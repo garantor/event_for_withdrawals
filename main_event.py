@@ -8,9 +8,6 @@ from decouple import config
 import logging
 logging.basicConfig(level=logging.INFO,  format="%(levelname)s %(message)s")
 
-
-
-
 staking_address = config(
     "STABLECOIN_ISSUER")
 HORIZON_URL = config("HORIZON_URL")

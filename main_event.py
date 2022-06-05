@@ -10,8 +10,9 @@ logging.basicConfig(level=logging.INFO,  format="%(levelname)s %(message)s")
 
 withdrawal_address = "GBRUNBDAHPAPFGORNVH6AIFZKBV7252DEIEJULIB73QQJ4BLAOHGU57J"
 HORIZON_URL = "https://horizon-testnet.stellar.org"
-# base_url = config("BASE_URL")
-event_url = "http://127.0.0.1:8000/listener" or "https://stablemvp.herokuapp.com/listener"
+
+event_url = config("BASE_URL")
+# event_url = "http://127.0.0.1:8000/listener" or "https://stablemvp.herokuapp.com/listener"
 
 """
 Event listener listen for transactions on the stablecoin issuer address,

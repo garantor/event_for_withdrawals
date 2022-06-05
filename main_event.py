@@ -8,22 +8,21 @@ from decouple import config
 import logging
 logging.basicConfig(level=logging.INFO,  format="%(levelname)s %(message)s")
 
-staking_address = config(
-    "STABLECOIN_ISSUER")
-HORIZON_URL = config("HORIZON_URL")
+withdrawal_address = "GBRUNBDAHPAPFGORNVH6AIFZKBV7252DEIEJULIB73QQJ4BLAOHGU57J"
+HORIZON_URL = "https://horizon-testnet.stellar.org"
 # base_url = config("BASE_URL")
-event_url = config("listener")
-
+event_url = "http://127.0.0.1:8000/listener" or "https://stablemvp.herokuapp.com/listener"
 
 """
-Event listner listen for transactions on the staking address,
+Event listener listen for transactions on the stablecoin issuer address,
 and when a payment transaction is received, it will send a POST request to the event_url
+This is a user withdrawal transaction
 """
 
 
 async def payments():
     async with ServerAsync(HORIZON_URL, AiohttpClient()) as server:
-        async for transactions in server.transactions().for_account(staking_address).stream():
+        async for transactions in server.transactions().for_account(withdrawal_address).stream():
             try:
                 logging.info(transactions['hash'])
                 logging.info(transactions['memo'])

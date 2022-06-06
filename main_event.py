@@ -8,7 +8,8 @@ from decouple import config
 import logging
 logging.basicConfig(level=logging.INFO,  format="%(levelname)s %(message)s")
 
-withdrawal_address = "GBRUNBDAHPAPFGORNVH6AIFZKBV7252DEIEJULIB73QQJ4BLAOHGU57J"
+# withdrawal_address = "GBRUNBDAHPAPFGORNVH6AIFZKBV7252DEIEJULIB73QQJ4BLAOHGU57J"
+withdrawal_address = config('WITHDRAWAL_ADDRESS')
 HORIZON_URL = "https://horizon-testnet.stellar.org"
 
 event_url = config("BASE_URL")
